@@ -90,10 +90,6 @@ Contribuições são bem-vindas! Para contribuir, siga os passos abaixo:
    ```
 5. Abra um Pull Request para revisão.
 
-# SistemaAcademia
-
-Este repositório contém o código-fonte e a documentação do SistemaAcademia. Aqui estão definidas as regras de uso do Git e estrutura do projeto para facilitar o trabalho colaborativo.
-
 ## Regras de Uso do Git
 
 ### Estrutura de Branches
