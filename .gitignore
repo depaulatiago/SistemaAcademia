@@ -1,0 +1,21 @@
+# Logs
+*.log
+
+# Arquivos temporários do sistema
+*.tmp
+*.swp
+
+# Pastas de build e dependências
+/node_modules/
+/dist/
+
+# Arquivos do editor
+*.idea/
+*.vscode/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Credenciais
+.env
