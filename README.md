@@ -149,6 +149,7 @@ Este repositório contém o código-fonte e a documentação do SistemaAcademia.
 ├── tests/              # Testes automatizados
 ├── .gitignore          # Arquivo de configuração do Git
 ├── README.md           # Documentação inicial
+├── LICENSE             # Licença do Repositório     
 ```
 ---
 
