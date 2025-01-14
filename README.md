@@ -90,6 +90,66 @@ Contribuições são bem-vindas! Para contribuir, siga os passos abaixo:
    ```
 5. Abra um Pull Request para revisão.
 
+# SistemaAcademia
+
+Este repositório contém o código-fonte e a documentação do SistemaAcademia. Aqui estão definidas as regras de uso do Git e estrutura do projeto para facilitar o trabalho colaborativo.
+
+## Regras de Uso do Git
+
+### Estrutura de Branches
+1. **Branch principal:**
+   - A branch principal do projeto é `main`. Deve conter apenas código estável e testado.
+   
+2. **Branches de desenvolvimento:**
+   - Crie branches para novas funcionalidades, correções de bugs ou melhorias. Use a convenção:
+     - `feature/nome-da-funcionalidade`
+     - `fix/nome-do-bug`
+     - `improvement/nome-da-melhoria`
+
+3. **Branches de hotfix:**
+   - Para correções urgentes na produção, utilize o prefixo `hotfix/`.
+
+### Regras de Commits
+1. **Estrutura de mensagens de commit:**
+   - Linha 1: Resumo (50 caracteres ou menos).
+   - Linha 2: (em branco)
+   - Linha 3+: Detalhes (se necessário, explicando o que foi feito e por quê).
+
+2. **Boas práticas:**
+   - Use verbos no imperativo (ex.: "Adiciona funcionalidade de login").
+   - Seja claro e objetivo.
+
+### Fluxo de Pull Requests
+1. Antes de criar um Pull Request:
+   - Certifique-se de que o código está funcional e testado.
+   - Atualize a branch com as alterações mais recentes de `main`.
+   - Resolva conflitos antes de enviar o PR.
+
+2. **Descrição do PR:**
+   - Inclua uma descrição clara das mudanças implementadas.
+   - Referencie issues relacionadas (ex.: "Resolve #123").
+
+### Organização do Repositório
+- **Código-fonte:**
+  - Todo o código relacionado ao sistema ficará na pasta `src/`.
+  
+- **Documentação:**
+  - Documentação geral e técnica ficará na pasta `docs/`.
+
+- **Outros arquivos importantes:**
+  - Configurações, scripts ou assets adicionais serão organizados conforme necessário em subpastas.
+
+---
+
+## Estrutura de Pastas do Projeto
+```plaintext
+/
+├── docs/               # Documentação do projeto
+├── src/                # Código-fonte
+├── tests/              # Testes automatizados
+├── .gitignore          # Arquivo de configuração do Git
+├── README.md           # Documentação inicial
+```
 ---
 
 ## Licença
