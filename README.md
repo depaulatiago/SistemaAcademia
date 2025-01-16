@@ -26,8 +26,8 @@ O **Sistema Academia** é um sistema desenvolvido para gerenciar informações e
 - **Spring Security** – para autenticação e segurança.
 
 ### Banco de Dados
-- **PostgreSQL**: Versão 15 (ou superior).
-
+- **H2 Database**: Banco de dados em memória para testes.
+  
 ### Servidor de Desenvolvimento
 - **Apache Tomcat** (embutido no Spring Boot): Versão 10.
 
