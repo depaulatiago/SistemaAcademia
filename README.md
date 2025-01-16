@@ -52,7 +52,19 @@ O **Sistema Academia** é um sistema desenvolvido para gerenciar informações e
    cd SistemaAcademia
    ```
 
-3. Configure o arquivo `application.properties` para o acesso ao banco de dados PostgreSQL.
+3. Configure o arquivo `application.properties` para o uso do banco de dados H2:
+
+No arquivo src/main/resources/application.properties, certifique-se de que as seguintes configurações estão presentes:
+
+   ```bash
+   spring.datasource.url=jdbc:h2:mem:sistema_academia
+   spring.datasource.driver-class-name=org.h2.Driver
+   spring.datasource.username=sa
+   spring.datasource.password=
+   spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+   spring.h2.console.enabled=true
+   spring.h2.console.path=/h2-console
+   ```
 
 4. Compile e execute o projeto com o Maven:
 
@@ -62,12 +74,35 @@ O **Sistema Academia** é um sistema desenvolvido para gerenciar informações e
 
 5. Acesse o sistema através do navegador em [http://localhost:8080](http://localhost:8080).
 
+6. Para acessar o banco de dados H2:
+
+   ```bash
+   http://localhost:8080/h2-console
+   ```
+   Utilize as credenciais configuradas no application.properties.
 ---
 
 ## Estrutura do Projeto
+### Pacotes Principais
+   
+* Model: Contém as classes que representam as entidades do sistema (por exemplo, Aluno, Instrutor).
 
-- `src/main/java`: Contém o código fonte do projeto.
-- `src/main/resources`: Contém os arquivos de configuração e templates do sistema.
+* Repository: Contém interfaces para interação com o banco de dados.
+
+* Service: Contém a lógica de negócio do sistema.
+
+* Controller: Contém os controladores REST para cada entidade do sistema.
+
+## API Endpoints Principais
+* `GET /api/instrutores`: Retorna todos os instrutores.
+
+* `GET /api/instrutores/{id}`: Retorna um instrutor específico pelo ID.
+
+* `POST /api/instrutores`: Salva um novo instrutor.
+
+* `PUT /api/instrutores/{id}`: Atualiza os dados de um instrutor.
+
+* `DELETE /api/instrutores/{id}`: Exclui um instrutor pelo ID.
 
 ---
 
