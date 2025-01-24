@@ -5,30 +5,33 @@ document.getElementById("add-instrutor-form").addEventListener("submit", async f
     const form = document.getElementById("add-instrutor-form");
     const formData = new FormData(form);
 
-    const nomeInstrutor = formData.get("nomeInstrutor")?.trim();
-    const idade = formData.get("idadeInstrutor")?.trim();
-    const salarioBasePlanejado = formData.get("salarioBasePlanejadoInstrutor")?.trim();
+    const nome = formData.get("nome")?.trim();
+    const idade = formData.get("idade")?.trim();
+    const salario = formData.get("salario")?.trim();
 
-    if (!nomeInstrutor || !idade || !salarioBasePlanejado) {
-        alert("Todos os campos são obrigatórios!");
-        return;
-    }
+        if (!nome || !idade || !salario) {
+           alert("Todos os campos são obrigatórios!");
+            return;
+        }
 
     try {
-        // Envia o instrutor para a API
-        const response = await fetch("http://localhost:3000/api/instrutores", {
+        const response = await fetch("http://localhost:8080/instrutor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                nome: nomeInstrutor,
+                nome: nome,
                 idade: parseInt(idade, 10),
-                salarioBase: parseFloat(salarioBasePlanejado),
+                salario: parseFloat(salario),
             }),
         });
 
-        if (!response.ok) throw new Error("Erro ao adicionar o instrutor!");
+        if (!response.ok) {
+            const errorResponse = await response.text();
+            console.error("Erro na resposta da API:", errorResponse);
+            throw new Error("Erro ao adicionar o instrutor!");
+        }
 
         alert("Instrutor adicionado com sucesso!");
         form.reset();

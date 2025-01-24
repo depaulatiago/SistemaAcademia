@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     const instrutorGrid = document.getElementById("instrutor-grid");
     const modal = document.getElementById("instrutor-modal");
     const closeButton = document.querySelector(".close-button");
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Função para buscar instrutores da API
     async function fetchInstrutores() {
         try {
-            const response = await fetch("http://localhost:3000/api/instrutores");
+            const response = await fetch("http://localhost:8080/instrutor");
             if (!response.ok) throw new Error("Erro ao buscar instrutores!");
             instrutores = await response.json();
             renderInstrutores(instrutores);
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 modalInstrutorNome.textContent = instrutor.nome || "Nome não disponível";
                 modalInstrutorFuncao.textContent = instrutor.idade || "Idade não disponível";
                 modalInstrutorSalarioBase.textContent =
-                    instrutor.salarioBase || "Salário base não disponível";
+                    instrutor.salario || "Salário base não disponível";
                 modal.style.display = "flex";
             });
 
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             deleteButton.addEventListener("click", async function () {
                 const instrutorId = deleteButton.dataset.id;
                 try {
-                    const response = await fetch(`http://localhost:3000/api/instrutores/${instrutorId}`, {
+                    const response = await fetch(`http://localhost:8080/instrutor/${instrutorId}`, {
                         method: "DELETE",
                     });
                     if (!response.ok) throw new Error("Erro ao excluir o instrutor!");
@@ -94,6 +94,38 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         renderInstrutores(filteredInstrutores);
     });
+
+    try {
+        const response = await fetch("http://localhost:8080/instrutor");
+        console.log("Status da resposta:", response.status);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Erro ao buscar instrutores:", errorText);
+            throw new Error("Erro ao buscar instrutores!");
+        }
+        instrutores = await response.json();
+        renderInstrutores(instrutores);
+    } catch (error) {
+        console.error("Erro ao buscar instrutores:", error);
+        alert("Erro ao carregar a lista de instrutores.");
+    }
+
+    async function fetchInstrutores() {
+        try {
+            const response = await fetch("http://localhost:8080/instrutor");
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error("Erro ao buscar instrutores:", errorText);
+                throw new Error("Erro ao buscar instrutores!");
+            }
+            instrutores = await response.json();
+            renderInstrutores(instrutores);
+        } catch (error) {
+            console.error("Erro ao buscar instrutores:", error);
+            alert("Erro ao carregar a lista de instrutores.");
+        }
+    }
+
 
     // Carrega os instrutores ao iniciar
     fetchInstrutores();
