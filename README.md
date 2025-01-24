@@ -41,23 +41,23 @@ O **Sistema Academia** é um sistema desenvolvido para gerenciar informações e
 1. Clone o repositório:
 
    
-bash
+```
    git clone https://github.com/usuario/SistemaAcademia.git
-
+```
 
 2. Navegue até a pasta do projeto:
 
    
-bash
+```
    cd SistemaAcademia
-
+```
 
 3. Configure o arquivo application.properties para o uso do banco de dados H2:
 
 No arquivo src/main/resources/application.properties, certifique-se de que as seguintes configurações estão presentes:
 
    
-bash
+```
    spring.datasource.url=jdbc:h2:mem:sistema_academia
    spring.datasource.driver-class-name=org.h2.Driver
    spring.datasource.username=sa
@@ -65,52 +65,43 @@ bash
    spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
    spring.h2.console.enabled=true
    spring.h2.console.path=/h2-console
-
+```
 
 4. Compile e execute o projeto com o Maven:
 
    
-bash
+```
    mvn spring-boot:run
+```
 
-
-5. Acesse o sistema através do navegador em [http://localhost:8080](http://localhost:8080).
-
-6. Para acessar o banco de dados H2:
+5. Acesse o sistema através do navegador em:
+```
+ http://localhost:8080.
+```
+7. Para acessar o banco de dados H2:
 
    
-bash
+```
    http://localhost:8080/h2-console
-
+```
    Utilize as credenciais configuradas no application.properties.
 
 7. Para rodar o frontend, baixe e instale o Live Server como extensão no VS Code (ou similar) e inicie o servidor na porta 5500. O frontend estará acessível em:
-bash
+```
   http://127.0.0.1:5500.
+```
 ---
 
 ## Estrutura do Projeto
 ### Pacotes Principais
    
-* Model: Contém as classes que representam as entidades do sistema (por exemplo, Aluno, Instrutor).
+* ```Model:``` Contém as classes que representam as entidades do sistema (por exemplo, Aluno, Instrutor).
 
-* Repository: Contém interfaces para interação com o banco de dados.
+* ```Repository:``` Contém interfaces para interação com o banco de dados.
 
-* Service: Contém a lógica de negócio do sistema.
+* ```Service:``` Contém a lógica de negócio do sistema.
 
-* Controller: Contém os controladores REST para cada entidade do sistema.
-
-## API Endpoints Principais
-* GET /api/instrutores: Retorna todos os instrutores.
-
-* GET /api/instrutores/{id}: Retorna um instrutor específico pelo ID.
-
-* POST /api/instrutores: Salva um novo instrutor.
-
-* PUT /api/instrutores/{id}: Atualiza os dados de um instrutor.
-
-* DELETE /api/instrutores/{id}: Exclui um instrutor pelo ID.
-
+* ```Controller:``` Contém os controladores REST para cada entidade do sistema.
 ---
 
 ## Contribuição
@@ -120,19 +111,19 @@ Contribuições são bem-vindas! Para contribuir, siga os passos abaixo:
 1. Fork este repositório.
 2. Crie uma branch com sua funcionalidade:
    
-bash
+```
    git checkout -b MinhaFuncionalidade
-
+```
 3. Realize as alterações e faça commit:
    
-bash
+```
    git commit -m 'Adiciona nova funcionalidade'
-
+```
 4. Envie suas alterações:
    
-bash
+```
    git push origin MinhaFuncionalidade
-
+```
 5. Abra um Pull Request para revisão.
 
 ## Regras de Uso do Git
@@ -143,9 +134,11 @@ bash
    
 2. **Branches de desenvolvimento:**
    - Crie branches para novas funcionalidades, correções de bugs ou melhorias. Use a convenção:
+   ```plaintext
      - feature/nome-da-funcionalidade
      - fix/nome-do-bug
      - improvement/nome-da-melhoria
+    ```
 
 3. **Branches de hotfix:**
    - Para correções urgentes na produção, utilize o prefixo hotfix/.
@@ -172,10 +165,10 @@ bash
 
 ### Organização do Repositório
 - **Código-fonte:**
-  - Todo o código relacionado ao sistema ficará na pasta src/.
+  - Todo o código relacionado ao sistema ficará na pasta ```src/```.
   
 - **Documentação:**
-  - Documentação geral e técnica ficará na pasta docs/.
+  - Documentação geral e técnica ficará na pasta ```docs/```.
 
 - **Outros arquivos importantes:**
   - Configurações, scripts ou assets adicionais serão organizados conforme necessário em subpastas.
@@ -183,7 +176,7 @@ bash
 ---
 
 ## Estrutura de Pastas do Projeto
-plaintext
+```plaintext
 /
 ├── docs/               # Documentação do projeto
 ├── src/                # Código-fonte
@@ -191,7 +184,7 @@ plaintext
 ├── .gitignore          # Arquivo de configuração do Git
 ├── README.md           # Documentação inicial
 ├── LICENSE             # Licença do Repositório
-
+```
 ---
 
 ## Licença
