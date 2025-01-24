@@ -8,6 +8,6 @@ public record InstrutorResponseDTO(Long idInst,
                                       double salario) {
 
     public InstrutorResponseDTO(Instrutor instrutor) {
-        this(instrutor.getId(), instrutor.getNome(), instrutor.getIdade(), instrutor.getSalario());
+        this(instrutor.getIdInst(), instrutor.getNome(), instrutor.getIdade(), instrutor.getSalario());
     }
 }

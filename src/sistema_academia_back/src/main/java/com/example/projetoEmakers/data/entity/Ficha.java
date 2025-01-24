@@ -17,18 +17,18 @@ public class Ficha {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "aluno_id", nullable = false)
+    @JoinColumn(name = "idAluno", nullable = false)
     private Aluno aluno;
 
     @ManyToOne
-    @JoinColumn(name = "instrutor_id", nullable = false)
+    @JoinColumn(name = "idInstrutor", nullable = false)
     private Instrutor instrutor;
 
     @ManyToMany
     @JoinTable(
             name = "ficha_maquinas",
-            joinColumns = @JoinColumn(name = "ficha_id"),
-            inverseJoinColumns = @JoinColumn(name = "maquina_id")
+            joinColumns = @JoinColumn(name = "idFicha"),
+            inverseJoinColumns = @JoinColumn(name = "idMaq")
     )
     private List<Maquina> maquinas;
 
