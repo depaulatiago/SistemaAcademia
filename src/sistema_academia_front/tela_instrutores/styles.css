@@ -54,32 +54,62 @@ header {
   object-fit: cover; /* Cobre o quadrado sem esticar */
 }
 
+
 /* Estilo do home-header */
 .home-header {
-  display: flex;
-  justify-content: left;
-  align-items: center;
+  display: flex; /* Flexbox para layout flexível */
+  justify-content: space-between; /* Garante que os itens sejam distribuídos corretamente */
+  align-items: center; /* Alinha verticalmente os itens */
   padding: 10px 20px;
+  position: relative; /* Necessário para que o botão de editar seja posicionado absolutamente */
 }
 
 .back-arrow {
-  text-align: left; /* Centraliza a seta */
+  text-align: left;
   margin: 2px 0; /* Espaçamento em cima e embaixo */
 }
 
 .back-arrow img {
-  width: 30px; /* Ajuste o tamanho se necessário */
+  width: 30px; /* Ajuste o tamanho da seta */
   height: 30px;
 }
 
-/* Ações */
 .actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center; /* Centraliza os itens dentro da div */
   align-items: center;
-  margin-bottom: 20px;
-  padding-left: 900px;
+  flex-grow: 1; /* Faz com que a div ocupe o espaço restante entre a seta e o botão de editar */
+  text-align: center;
 }
+
+.edit {
+  width: 25px;
+  position: absolute; /* Posiciona a div de edição fora do fluxo normal */
+  right: 20px; /* Coloca no canto direito */
+  top: 145px; /* Alinha verticalmente ao meio */
+  transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+}
+
+.edit img {
+  width: 100%; /* Faz a imagem ocupar toda a largura da div */
+  height: 100%; /* Faz a imagem ocupar toda a altura da div */
+}
+
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+
 
 /* Botão estilizado */
 .add-btn {

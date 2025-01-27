@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             // Adiciona evento para excluir o instrutor
             const deleteButton = instrutorItem.querySelector(".delete-btn");
             deleteButton.addEventListener("click", async function () {
-                const instrutorId = deleteButton.dataset.id;
+                const id = deleteButton.dataset.id;
                 try {
-                    const response = await fetch(`http://localhost:8080/instrutor/${instrutorId}`, {
+                    const response = await fetch(`http://localhost:8080/instrutor/${id}`, {
                         method: "DELETE",
                     });
                     if (!response.ok) throw new Error("Erro ao excluir o instrutor!");
@@ -110,21 +110,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         alert("Erro ao carregar a lista de instrutores.");
     }
 
-    async function fetchInstrutores() {
-        try {
-            const response = await fetch("http://localhost:8080/instrutor");
-            if (!response.ok) {
-                const errorText = await response.text();
-                console.error("Erro ao buscar instrutores:", errorText);
-                throw new Error("Erro ao buscar instrutores!");
-            }
-            instrutores = await response.json();
-            renderInstrutores(instrutores);
-        } catch (error) {
-            console.error("Erro ao buscar instrutores:", error);
-            alert("Erro ao carregar a lista de instrutores.");
-        }
-    }
 
 
     // Carrega os instrutores ao iniciar

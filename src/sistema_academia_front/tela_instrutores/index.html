@@ -12,10 +12,10 @@
     <header>
         <div class="top-bar">
             <div class="logo">
-                <img src="logo.png" alt="Logo">
+                <img src="../assets/muscle-man.png" alt="Logo" style="width: 50px; height: auto;">
             </div>
             <div class="title">
-                <h1>Instrutores</h1>
+                <h1 style="text-align: center; margin: 0 auto;">Instrutores</h1>
             </div>
             <div class="menu-icon">
                 <span></span>
@@ -29,16 +29,20 @@
         <div class="home-header">
             <div class="back-arrow">
                 <a href="../TelaInicial/home.html">
-                    <img src="../../../assets/back-arrow-icon.png" alt="Voltar">
+                    <img src="../assets/back-arrow.png" alt="Voltar">
                 </a>
             </div>
             <div class="actions">
-              <input type="text" class="search-bar" id="search-input" placeholder="🔍 Buscar...">
+              <input type="text" class="search-bar" id="search-input" placeholder="🔍 Buscar..." >
               <button class="add-btn" onclick="window.location.href='../tela_adicionar_instrutor/index.html'">+ Novo Instrutor</button>
           </div>
           
         </div>
-
+        <div class="edit">
+            <a href="../tela_editar_instrutor/index.html">
+                <img src="../assets/edit.png" alt="Editar">
+            </a>
+        </div>
         <div class="grid-wrapper">
             <div class="grid-container" id="instrutor-grid">
                 <!-- Card dos instrutores será gerado aqui -->
@@ -64,7 +68,7 @@
             <span class="close-button">&times;</span>
             <h2 id="modal-funcionario-name">Instrutor</h2>
             <p><strong>Nome:</strong> <span id="modal-instrutor-nome"></span></p>
-            <p><strong>Função:</strong> <span id="modal-instrutor-idade"></span></p>
+            <p><strong>Idade:</strong> <span id="modal-instrutor-idade"></span></p>
             <p><strong>Salário Base Planejado:</strong> <span id="modal-instrutor-salario-base"></span></p>
             </div>
     </div>
