@@ -72,14 +72,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google.firebase</groupId>
-			<artifactId>firebase-admin</artifactId>
-			<version>9.1.1</version>
-		</dependency>
-		<dependency>
 			<groupId>com.google.auth</groupId>
 			<artifactId>google-auth-library-oauth2-http</artifactId>
 			<version>1.16.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.9.0</version> <!-- Use a versão mais recente disponível -->
 		</dependency>
 		</dependencies>
 

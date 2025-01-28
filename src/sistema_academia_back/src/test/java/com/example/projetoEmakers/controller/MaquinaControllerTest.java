@@ -31,8 +31,8 @@ class MaquinaControllerTest {
 
     @Test
     void testGetAllMaquinas() {
-        Maquina maquina1 = new Maquina("Maquina A", "Categoria A", 100, new Date());
-        Maquina maquina2 = new Maquina("Maquina B", "Categoria B", 200, new Date());
+        Maquina maquina1 = new Maquina("Maquina A", "Categoria A", 100);
+        Maquina maquina2 = new Maquina("Maquina B", "Categoria B", 200);
 
         when(maquinaRepository.findAll()).thenReturn(Arrays.asList(maquina1, maquina2));
 
@@ -46,8 +46,8 @@ class MaquinaControllerTest {
 
     @Test
     void testCreateMaquina() {
-        Maquina maquina = new Maquina("Maquina Nova", "Categoria Nova", 150, new Date());
-        Maquina savedMaquina = new Maquina("Maquina Nova", "Categoria Nova", 150, new Date());
+        Maquina maquina = new Maquina("Maquina Nova", "Categoria Nova", 150);
+        Maquina savedMaquina = new Maquina("Maquina Nova", "Categoria Nova", 150);
         savedMaquina.setIdMaq(1L);
 
         when(maquinaRepository.save(maquina)).thenReturn(savedMaquina);
@@ -62,7 +62,7 @@ class MaquinaControllerTest {
 
     @Test
     void testGetMaquinaById_Success() {
-        Maquina maquina = new Maquina("Maquina A", "Categoria A", 100, new Date());
+        Maquina maquina = new Maquina("Maquina A", "Categoria A", 100);
         maquina.setIdMaq(1L);
 
         when(maquinaRepository.findById(1L)).thenReturn(Optional.of(maquina));
@@ -87,10 +87,10 @@ class MaquinaControllerTest {
 
     @Test
     void testUpdateMaquina_Success() {
-        Maquina existingMaquina = new Maquina("Maquina Antiga", "Categoria Antiga", 100, new Date());
+        Maquina existingMaquina = new Maquina("Maquina Antiga", "Categoria Antiga", 100);
         existingMaquina.setIdMaq(1L);
 
-        Maquina updatedMaquina = new Maquina("Maquina Atualizada", "Categoria Atualizada", 150, new Date());
+        Maquina updatedMaquina = new Maquina("Maquina Atualizada", "Categoria Atualizada", 150);
 
         when(maquinaRepository.findById(1L)).thenReturn(Optional.of(existingMaquina));
         when(maquinaRepository.save(existingMaquina)).thenReturn(existingMaquina);
@@ -106,7 +106,7 @@ class MaquinaControllerTest {
 
     @Test
     void testUpdateMaquina_NotFound() {
-        Maquina updatedMaquina = new Maquina("Maquina Atualizada", "Categoria Atualizada", 150, new Date());
+        Maquina updatedMaquina = new Maquina("Maquina Atualizada", "Categoria Atualizada", 150);
 
         when(maquinaRepository.findById(1L)).thenReturn(Optional.empty());
 
@@ -120,7 +120,7 @@ class MaquinaControllerTest {
 
     @Test
     void testDeleteMaquina_Success() {
-        Maquina maquina = new Maquina("Maquina A", "Categoria A", 100, new Date());
+        Maquina maquina = new Maquina("Maquina A", "Categoria A", 100);
         maquina.setIdMaq(1L);
 
         when(maquinaRepository.findById(1L)).thenReturn(Optional.of(maquina));
