@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const modal = document.getElementById("instrutor-modal");
     const closeButton = document.querySelector(".close-button");
 
+    const modalInstrutorId = document.getElementById("modal-instrutor-id");
     const modalInstrutorNome = document.getElementById("modal-instrutor-nome");
     const modalInstrutorFuncao = document.getElementById("modal-instrutor-idade");
     const modalInstrutorSalarioBase = document.getElementById("modal-instrutor-salario-base");
@@ -30,13 +31,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             instrutorItem.classList.add("grid-item");
             instrutorItem.innerHTML = `
                 <span class="instrutor-name">${instrutor.nome}</span>
-                <button class="delete-btn" data-id="${instrutor.id}">X</button>
+                <button class="delete-btn" data-id="${instrutor.idInst}">X</button>
             `;
 
             // Adiciona evento para abrir o modal ao clicar no instrutor
             instrutorItem.addEventListener("click", function (event) {
                 if (event.target.classList.contains("delete-btn")) return;
 
+                modalInstrutorId.textContent = instrutor.idInst || "Id não disponível";
                 modalInstrutorNome.textContent = instrutor.nome || "Nome não disponível";
                 modalInstrutorFuncao.textContent = instrutor.idade || "Idade não disponível";
                 modalInstrutorSalarioBase.textContent =
@@ -46,7 +48,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             // Adiciona evento para excluir o instrutor
             const deleteButton = instrutorItem.querySelector(".delete-btn");
-            deleteButton.addEventListener("click", async function () {
+            // Adiciona evento para excluir o instrutor
+            deleteButton.addEventListener("click", async function (event) {
+                event.stopPropagation(); // Impede que o clique no botão afete outros eventos
                 const id = deleteButton.dataset.id;
                 try {
                     const response = await fetch(`http://localhost:8080/instrutor/${id}`, {
@@ -61,7 +65,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                     alert("Erro ao excluir o instrutor. Tente novamente.");
                 }
             });
-
             instrutorGrid.appendChild(instrutorItem);
         });
     }
