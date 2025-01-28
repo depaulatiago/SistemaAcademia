@@ -19,25 +19,17 @@
         <form id="edit-ficha-tecnica-form">
             <div class="grid-container">
                 <div class="column">
-                    <label for="exercicio1">Exercício 1:</label>
-                    <input type="text" id="exercicio1" name="exercicio1">
+                    <label for="ficha-id">ID da Ficha:</label>
+                    <input type="text" id="ficha-id" name="ficha-id" required>
 
-                    <label for="exercicio2">Exercício 2:</label>
-                    <input type="text" id="exercicio2" name="exercicio2">
+                    <label for="id-aluno">ID do Aluno:</label>
+                    <input type="text" id="id-aluno" name="id-aluno" required>
 
-                    <label for="exercicio3">Exercício 3:</label>
-                    <input type="text" id="exercicio3" name="exercicio3">
-                </div>
+                    <label for="id-instrutor">ID do Instrutor:</label>
+                    <input type="text" id="id-instrutor" name="id-instrutor" required>
 
-                <div class="column">
-                    <label for="categoria1">Categoria 1:</label>
-                    <input type="text" id="categoria1" name="categoria1">
-
-                    <label for="categoria2">Categoria 2:</label>
-                    <input type="text" id="categoria2" name="categoria2">
-
-                    <label for="categoria3">Categoria 3:</label>
-                    <input type="text" id="categoria3" name="categoria3">
+                    <label for="ids-maquinas">IDs das Máquinas (separados por vírgula):</label>
+                    <input type="text" id="ids-maquinas" name="ids-maquinas" required>
                 </div>
             </div>
 
@@ -45,7 +37,51 @@
         </form>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("edit-ficha-tecnica-form");
+
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                // Captura os valores do formulário
+                const fichaId = document.getElementById("ficha-id").value;
+                const idAluno = document.getElementById("id-aluno").value;
+                const idInstrutor = document.getElementById("id-instrutor").value;
+                const idsMaquinas = document.getElementById("ids-maquinas").value
+                    .split(",") // Divide os IDs por vírgula
+                    .map(id => id.trim()) // Remove espaços extras
+                    .map(Number); // Converte os valores para números
+
+                const updatedFicha = {
+                    idAluno: idAluno,
+                    idInstrutor: idInstrutor,
+                    idsMaquinas: idsMaquinas
+                };
+
+                try {
+                    // Envia os dados para a API para edição
+                    const response = await fetch(`http://localhost:8080/ficha/${fichaId}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(updatedFicha)
+                    });
+
+                    if (response.ok) {
+                        alert("Ficha Técnica atualizada com sucesso!");
+                    } else {
+                        const errorMessage = await response.text();
+                        alert(`Erro ao atualizar a ficha técnica: ${errorMessage}`);
+                    }
+                } catch (error) {
+                    console.error("Erro ao atualizar ficha técnica:", error);
+                    alert("Erro ao conectar-se à API.");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

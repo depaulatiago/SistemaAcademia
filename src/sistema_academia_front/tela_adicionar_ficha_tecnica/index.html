@@ -4,57 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Ficha Técnica</title>
+    <title>Adicionar Ficha Técnica</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
-        <h1>Editar Ficha Técnica</h1>
+        <h1>Adicionar Ficha Técnica</h1>
     </header>
 
     <main>
         <button id="back-button" onclick="window.history.back()">&larr; Voltar</button>
 
         <form id="edit-ficha-tecnica-form">
-            <!-- Grid para dividir os Exercícios e Categorias -->
-            <div class="grid-container">
-                <!-- Coluna para Exercícios -->
-                <div class="column">
-                    <label for="exercicio1">Exercício 1:</label>
-                    <input type="text" id="exercicio1" name="exercicio1">
+            <div>
+                <label for="idAluno">ID Aluno:</label>
+                <input type="number" id="idAluno" name="idAluno" required>
+            </div>
 
-                    <label for="exercicio2">Exercício 2:</label>
-                    <input type="text" id="exercicio2" name="exercicio2">
+            <div>
+                <label for="idInstrutor">ID Instrutor:</label>
+                <input type="number" id="idInstrutor" name="idInstrutor" required>
+            </div>
 
-                    <label for="exercicio3">Exercício 3:</label>
-                    <input type="text" id="exercicio3" name="exercicio3">
-
-                    <label for="exercicio4">Exercício 4:</label>
-                    <input type="text" id="exercicio4" name="exercicio4">
-                </div>
-
-                <!-- Coluna para Categorias -->
-                <div class="column">
-                    <label for="categoria1">Categoria 1:</label>
-                    <input type="text" id="categoria1" name="categoria1">
-
-                    <label for="categoria2">Categoria 2:</label>
-                    <input type="text" id="categoria2" name="categoria2">
-
-                    <label for="categoria3">Categoria 3:</label>
-                    <input type="text" id="categoria3" name="categoria3">
-
-                    <label for="categoria4">Categoria 4:</label>
-                    <input type="text" id="categoria4" name="categoria4">
-                </div>
+            <div>
+                <label for="idsMaquinas">IDs das Máquinas (separados por vírgula):</label>
+                <input type="text" id="idsMaquinas" name="idsMaquinas" placeholder="1, 2, 3" required>
             </div>
 
             <button type="submit">Salvar Alterações</button>
         </form>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("edit-ficha-tecnica-form");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                // Obter valores dos inputs
+                const idAluno = document.getElementById("idAluno").value.trim();
+                const idInstrutor = document.getElementById("idInstrutor").value.trim();
+                const idsMaquinasInput = document.getElementById("idsMaquinas").value.trim();
+
+                // Converter IDs de máquinas para um array de números
+                const idsMaquinas = idsMaquinasInput.split(",").map(id => parseInt(id.trim(), 10)).filter(id => !isNaN(id));
+
+                // Criar o objeto JSON
+                const fichaTecnica = {
+                    idAluno: parseInt(idAluno, 10),
+                    idInstrutor: parseInt(idInstrutor, 10),
+                    idsMaquinas: idsMaquinas
+                };
+
+                // Enviar o JSON para o backend
+                fetch("http://localhost:8080/ficha", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(fichaTecnica)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Ficha técnica salva com sucesso!");
+                        form.reset();
+                    } else {
+                        alert("Erro ao salvar ficha técnica.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro na requisição:", error);
+                    alert("Erro ao salvar ficha técnica.");
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
