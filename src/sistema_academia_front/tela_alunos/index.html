@@ -4,88 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fichas Alunos</title>
-    <link rel="stylesheet" href="./styles.css">
+    <title>Lista de Alunos</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
-        <div class="top-bar">
-            <div class="logo">
-                <img src="../assets/muscle-man.png" alt="Logo" style="width: 50px; height: auto;">
-            </div>
-            <div class="title">
-                <h1 style="text-align: center; margin: 0 auto;">Fichas Alunos</h1>
-            </div>
-            <div class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+        <h1>Lista de Alunos</h1>
     </header>
 
     <main>
-        <div class="home-header">
-            <div class="back-arrow">
-                <a href="../tela_home/index.html">
-                    <img src="../assets/back-arrow.png" alt="Voltar">
-                </a>
+        <input id="search-input" type="text" placeholder="Buscar aluno pelo nome">
+        <div id="alunos-grid" class="grid-container"></div>
+
+        <!-- Modal para exibir detalhes do aluno -->
+        <div id="instrutor-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Detalhes do Aluno</h2>
+                <p><strong>ID:</strong> <span id="modal-aluno-id"></span></p>
+                <p><strong>Nome:</strong> <span id="modal-aluno-nome"></span></p>
+                <p><strong>Idade:</strong> <span id="modal-aluno-idade"></span></p>
+        
+                <h3>Exercícios</h3>
+                <p><strong>Exercício 1:</strong> <span id="modal-aluno-exercicio-1"></span></p>
+                <p><strong>Categoria 1:</strong> <span id="modal-aluno-categoria-1"></span></p>
+        
+                <p><strong>Exercício 2:</strong> <span id="modal-aluno-exercicio-2"></span></p>
+                <p><strong>Categoria 2:</strong> <span id="modal-aluno-categoria-2"></span></p>
+        
+                <p><strong>Exercício 3:</strong> <span id="modal-aluno-exercicio-3"></span></p>
+                <p><strong>Categoria 3:</strong> <span id="modal-aluno-categoria-3"></span></p>
+        
+                <p><strong>Exercício 4:</strong> <span id="modal-aluno-exercicio-4"></span></p>
+                <p><strong>Categoria 4:</strong> <span id="modal-aluno-categoria-4"></span></p>
             </div>
-            <div class="actions">
-              <input type="text" class="search-bar" id="search-input" placeholder="🔍 Buscar..." >
-          </div>
-          
         </div>
-        <div class="edit">
-            <a href="../tela_editar_ficha_tecnica/index.html">
-                <img src="../assets/edit.png" alt="Editar">
-            </a>
-        </div>
-        <div class="grid-wrapper">
-            <div class="grid-container" id="alunos-grid">
-                <!-- Card dos alunos será gerado aqui -->
-            </div>
-        </div>
+        
     </main>
 
-    <footer>
-        <div class="footer-left">
-            <p>Versão 1.0.0</p>
-        </div>
-        <div class="footer-center">
-            <p>Copyright © Savex</p>
-        </div>
-        <div class="footer-right">
-            <p><span id="current-date"></span></p>
-        </div>
-    </footer>
-
-    <!-- Instrutores Modal -->
-    <div id="instrutor-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="modal-funcionario-name">Instrutor</h2>
-            <p><strong>ID:</strong> <span id="modal-aluno-id"></span></p>
-            <p><strong>Nome:</strong> <span id="modal-aluno-nome"></span></p>
-            <p><strong>Idade:</strong> <span id="modal-aluno-idade"></span></p>
-            <p><strong>Exercício 1:</strong> <span id="modal-aluno-exercicio-1"></span></p>
-            <p><strong>Categoria 1:</strong> <span id="modal-aluno-categoria-1"></span></p>
-
-            <p><strong>Exercício 2:</strong> <span id="modal-aluno-exercicio-2"></span></p>
-            <p><strong>Categoria 2:</strong> <span id="modal-aluno-categoria-2"></span></p>
-
-            <p><strong>Exercício 3:</strong> <span id="modal-aluno-exercicio-3"></span></p>
-            <p><strong>Categoria 3:</strong> <span id="modal-aluno-categoria-3"></span></p>
-
-            <p><strong>Exercício 4:</strong> <span id="modal-aluno-exercicio-4"></span></p>
-            <p><strong>Categoria 4:</strong> <span id="modal-aluno-categoria-4"></span></p>
-            </div>
-    </div>
-
-
-
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
