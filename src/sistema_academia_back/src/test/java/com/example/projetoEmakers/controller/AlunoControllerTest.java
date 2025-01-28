@@ -75,7 +75,7 @@ public class AlunoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.idAluno").value(aluno.getIdAluno()))
                 .andExpect(jsonPath("$.nome").value(aluno.getNome()))
-                .andExpect(jsonPath("$.peso").value((double) aluno.getPeso())) // Força a comparação como decimal
+                .andExpect(jsonPath("$.peso").value((int) aluno.getPeso())) // Força a comparação como decimal
                 .andExpect(jsonPath("$.idade").value(aluno.getIdade()))
                 .andExpect(jsonPath("$.genero").value(aluno.getGenero()));
     }
