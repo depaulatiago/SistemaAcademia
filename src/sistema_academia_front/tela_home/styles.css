@@ -12,7 +12,7 @@ body {
 
 /* Estilo do header */
 header {
-    background-color: #4CAF50;
+    background-color: #518BAF;
     padding: 15px 20px;
     color: white;
 }
@@ -38,29 +38,12 @@ header {
     padding-right: 30px;
 }
 
-.user-icon {
-    width: 40px; /* Define o tamanho do ícone do usuário */
-    height: 40px; /* Define o tamanho do ícone do usuário */
-    border-radius: 20px; /* Faz o ícone ficar arredondado */
-    overflow: hidden; /* Esconde o que sair do contêiner */
-    display: flex; /* Usado para centralizar a imagem */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    background-color: #4CAF50; /* Cor de fundo opcional */
-}
-
-.user-icon img {
-    width: 100%; /* A imagem ocupa toda a largura do contêiner */
-    height: auto; /* Mantém a proporção da imagem */
-    object-fit: cover; /* Cobre o quadrado sem esticar */
-}
-
 /* adicione agora o home-header */
 .home-header {
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    padding: 10px 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
 }
 
 .menu-icon span {
@@ -118,7 +101,7 @@ main {
 }
 
 .grid-item {
-    background-color: #4CAF50;
+    background-color: #518BAF;
     width: 180px; /* Maintain the previous size */
     height: 180px; /* Maintain the previous size */
     display: flex;
@@ -147,13 +130,13 @@ main {
 }
 
 .grid-item:hover {
-    background-color: #45a049; /* Hover effect */
+    background-color: #134869; /* Hover effect */
 }
 
 
 /* Manter o footer visível, mas sem sobrepor conteúdo */
 footer {
-    background-color: #6b8e23;
+    background-color: #518BAF;
     color: white;
     display: flex;
     justify-content: space-between;
