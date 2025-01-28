@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Ficha Técnica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Editar Ficha Técnica</h1>
+    </header>
+
+    <main>
+        <button id="back-button" onclick="window.history.back()">&larr; Voltar</button>
+
+        <form id="edit-ficha-tecnica-form">
+            <div class="grid-container">
+                <div class="column">
+                    <label for="exercicio1">Exercício 1:</label>
+                    <input type="text" id="exercicio1" name="exercicio1">
+
+                    <label for="exercicio2">Exercício 2:</label>
+                    <input type="text" id="exercicio2" name="exercicio2">
+
+                    <label for="exercicio3">Exercício 3:</label>
+                    <input type="text" id="exercicio3" name="exercicio3">
+                </div>
+
+                <div class="column">
+                    <label for="categoria1">Categoria 1:</label>
+                    <input type="text" id="categoria1" name="categoria1">
+
+                    <label for="categoria2">Categoria 2:</label>
+                    <input type="text" id="categoria2" name="categoria2">
+
+                    <label for="categoria3">Categoria 3:</label>
+                    <input type="text" id="categoria3" name="categoria3">
+                </div>
+            </div>
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
