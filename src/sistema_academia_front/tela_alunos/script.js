@@ -1,71 +1,83 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const instrutorGrid = document.getElementById("instrutor-grid");
+    const alunosGrid = document.getElementById("alunos-grid");
     const modal = document.getElementById("instrutor-modal");
     const closeButton = document.querySelector(".close-button");
 
-    const modalInstrutorId = document.getElementById("modal-instrutor-id");
-    const modalInstrutorNome = document.getElementById("modal-instrutor-nome");
-    const modalInstrutorFuncao = document.getElementById("modal-instrutor-idade");
-    const modalInstrutorSalarioBase = document.getElementById("modal-instrutor-salario-base");
+    const modalAlunoId = document.getElementById("modal-aluno-id");
+    const modalAlunoNome = document.getElementById("modal-aluno-nome");
+    const modalAlunoIdade = document.getElementById("modal-aluno-idade");
+    const modalAlunoExercicio1 = document.getElementById("modal-aluno-exercicio-1");
+    const modalAlunoCategoria1 = document.getElementById("modal-aluno-categoria-1");
+    const modalAlunoExercicio2 = document.getElementById("modal-aluno-exercicio-2");
+    const modalAlunoCategoria2 = document.getElementById("modal-aluno-categoria-2");
+    const modalAlunoExercicio3 = document.getElementById("modal-aluno-exercicio-3");
+    const modalAlunoCategoria3 = document.getElementById("modal-aluno-categoria-3");
+    const modalAlunoExercicio4 = document.getElementById("modal-aluno-exercicio-4");
+    const modalAlunoCategoria4 = document.getElementById("modal-aluno-categoria-4");
 
-    let instrutores = []; // Lista de instrutores
+    let alunos = []; // Lista de alunos
 
-    // Função para buscar instrutores da API
-    async function fetchInstrutores() {
+    // Função para buscar alunos da API
+    async function fetchAlunos() {
         try {
-            const response = await fetch("http://localhost:8080/instrutor");
-            if (!response.ok) throw new Error("Erro ao buscar instrutores!");
-            instrutores = await response.json();
-            renderInstrutores(instrutores);
+            const response = await fetch("http://localhost:8080/alunos");
+            if (!response.ok) throw new Error("Erro ao buscar alunos!");
+            alunos = await response.json();
+            renderAlunos(alunos);
         } catch (error) {
-            console.error("Erro ao buscar instrutores:", error);
-            alert("Erro ao carregar a lista de instrutores.");
+            console.error("Erro ao buscar alunos:", error);
+            alert("Erro ao carregar a lista de alunos.");
         }
     }
 
-    // Função para renderizar os instrutores no grid
-    function renderInstrutores(instrutoresToRender) {
-        instrutorGrid.innerHTML = "";
-        instrutoresToRender.forEach((instrutor) => {
-            const instrutorItem = document.createElement("div");
-            instrutorItem.classList.add("grid-item");
-            instrutorItem.innerHTML = `
-                <span class="instrutor-name">${instrutor.nome}</span>
-                <button class="delete-btn" data-id="${instrutor.idInst}">X</button>
+    // Função para renderizar os alunos no grid
+    function renderAlunos(alunosToRender) {
+        alunosGrid.innerHTML = "";
+        alunosToRender.forEach((aluno) => {
+            const alunoItem = document.createElement("div");
+            alunoItem.classList.add("grid-item");
+            alunoItem.innerHTML = `
+                <span class="aluno-name">${aluno.nome}</span>
+                <button class="delete-btn" data-id="${aluno.id}">X</button>
             `;
 
-            // Adiciona evento para abrir o modal ao clicar no instrutor
-            instrutorItem.addEventListener("click", function (event) {
+            // Adiciona evento para abrir o modal ao clicar no aluno
+            alunoItem.addEventListener("click", function (event) {
                 if (event.target.classList.contains("delete-btn")) return;
 
-                modalInstrutorId.textContent = instrutor.idInst || "Id não disponível";
-                modalInstrutorNome.textContent = instrutor.nome || "Nome não disponível";
-                modalInstrutorFuncao.textContent = instrutor.idade || "Idade não disponível";
-                modalInstrutorSalarioBase.textContent =
-                    instrutor.salario || "Salário base não disponível";
+                modalAlunoId.textContent = aluno.id || "ID não disponível";
+                modalAlunoNome.textContent = aluno.nome || "Nome não disponível";
+                modalAlunoIdade.textContent = aluno.idade || "Idade não disponível";
+                modalAlunoExercicio1.textContent = aluno.exercicio1 || "Exercício 1 não disponível";
+                modalAlunoCategoria1.textContent = aluno.categoria1 || "Categoria 1 não disponível";
+                modalAlunoExercicio2.textContent = aluno.exercicio2 || "Exercício 2 não disponível";
+                modalAlunoCategoria2.textContent = aluno.categoria2 || "Categoria 2 não disponível";
+                modalAlunoExercicio3.textContent = aluno.exercicio3 || "Exercício 3 não disponível";
+                modalAlunoCategoria3.textContent = aluno.categoria3 || "Categoria 3 não disponível";
+                modalAlunoExercicio4.textContent = aluno.exercicio4 || "Exercício 4 não disponível";
+                modalAlunoCategoria4.textContent = aluno.categoria4 || "Categoria 4 não disponível";
                 modal.style.display = "flex";
             });
 
-            // Adiciona evento para excluir o instrutor
-            const deleteButton = instrutorItem.querySelector(".delete-btn");
-            // Adiciona evento para excluir o instrutor
+            // Adiciona evento para excluir o aluno
+            const deleteButton = alunoItem.querySelector(".delete-btn");
             deleteButton.addEventListener("click", async function (event) {
                 event.stopPropagation(); // Impede que o clique no botão afete outros eventos
                 const id = deleteButton.dataset.id;
                 try {
-                    const response = await fetch(`http://localhost:8080/instrutor/${id}`, {
+                    const response = await fetch(`http://localhost:8080/alunos/${id}`, {
                         method: "DELETE",
                     });
-                    if (!response.ok) throw new Error("Erro ao excluir o instrutor!");
+                    if (!response.ok) throw new Error("Erro ao excluir o aluno!");
 
-                    alert("Instrutor excluído com sucesso!");
-                    fetchInstrutores(); // Atualiza a lista
+                    alert("Aluno excluído com sucesso!");
+                    fetchAlunos(); // Atualiza a lista
                 } catch (error) {
-                    console.error("Erro ao excluir o instrutor:", error);
-                    alert("Erro ao excluir o instrutor. Tente novamente.");
+                    console.error("Erro ao excluir o aluno:", error);
+                    alert("Erro ao excluir o aluno. Tente novamente.");
                 }
             });
-            instrutorGrid.appendChild(instrutorItem);
+            alunosGrid.appendChild(alunoItem);
         });
     }
 
@@ -88,33 +100,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     });
 
-    // Filtra instrutores pelo termo de busca
+    // Filtra alunos pelo termo de busca
     const searchInput = document.getElementById("search-input");
     searchInput.addEventListener("input", function () {
         const searchTerm = searchInput.value.toLowerCase();
-        const filteredInstrutores = instrutores.filter((instrutor) =>
-            instrutor.nome.toLowerCase().includes(searchTerm)
+        const filteredAlunos = alunos.filter((aluno) =>
+            aluno.nome.toLowerCase().includes(searchTerm)
         );
-        renderInstrutores(filteredInstrutores);
+        renderAlunos(filteredAlunos);
     });
 
-    try {
-        const response = await fetch("http://localhost:8080/instrutor");
-        console.log("Status da resposta:", response.status);
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error("Erro ao buscar instrutores:", errorText);
-            throw new Error("Erro ao buscar instrutores!");
-        }
-        instrutores = await response.json();
-        renderInstrutores(instrutores);
-    } catch (error) {
-        console.error("Erro ao buscar instrutores:", error);
-        alert("Erro ao carregar a lista de instrutores.");
-    }
-
-
-
-    // Carrega os instrutores ao iniciar
-    fetchInstrutores();
+    // Carrega os alunos ao iniciar
+    fetchAlunos();
 });

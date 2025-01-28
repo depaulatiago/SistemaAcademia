@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instrutores</title>
+    <title>Fichas Alunos</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -15,7 +15,7 @@
                 <img src="../assets/muscle-man.png" alt="Logo" style="width: 50px; height: auto;">
             </div>
             <div class="title">
-                <h1 style="text-align: center; margin: 0 auto;">Instrutores</h1>
+                <h1 style="text-align: center; margin: 0 auto;">Fichas Alunos</h1>
             </div>
             <div class="menu-icon">
                 <span></span>
@@ -34,18 +34,17 @@
             </div>
             <div class="actions">
               <input type="text" class="search-bar" id="search-input" placeholder="🔍 Buscar..." >
-              <button class="add-btn" onclick="window.location.href='../tela_adicionar_instrutor/index.html'">+ Novo Instrutor</button>
           </div>
           
         </div>
         <div class="edit">
-            <a href="../tela_editar_instrutor/index.html">
+            <a href="../tela_editar_ficha_tecnica/index.html">
                 <img src="../assets/edit.png" alt="Editar">
             </a>
         </div>
         <div class="grid-wrapper">
-            <div class="grid-container" id="instrutor-grid">
-                <!-- Card dos instrutores será gerado aqui -->
+            <div class="grid-container" id="alunos-grid">
+                <!-- Card dos alunos será gerado aqui -->
             </div>
         </div>
     </main>
@@ -67,10 +66,20 @@
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2 id="modal-funcionario-name">Instrutor</h2>
-            <p><strong>ID:</strong> <span id="modal-instrutor-id"></span></p>
-            <p><strong>Nome:</strong> <span id="modal-instrutor-nome"></span></p>
-            <p><strong>Idade:</strong> <span id="modal-instrutor-idade"></span></p>
-            <p><strong>Salário Base Planejado:</strong> <span id="modal-instrutor-salario-base"></span></p>
+            <p><strong>ID:</strong> <span id="modal-aluno-id"></span></p>
+            <p><strong>Nome:</strong> <span id="modal-aluno-nome"></span></p>
+            <p><strong>Idade:</strong> <span id="modal-aluno-idade"></span></p>
+            <p><strong>Exercício 1:</strong> <span id="modal-aluno-exercicio-1"></span></p>
+            <p><strong>Categoria 1:</strong> <span id="modal-aluno-categoria-1"></span></p>
+
+            <p><strong>Exercício 2:</strong> <span id="modal-aluno-exercicio-2"></span></p>
+            <p><strong>Categoria 2:</strong> <span id="modal-aluno-categoria-2"></span></p>
+
+            <p><strong>Exercício 3:</strong> <span id="modal-aluno-exercicio-3"></span></p>
+            <p><strong>Categoria 3:</strong> <span id="modal-aluno-categoria-3"></span></p>
+
+            <p><strong>Exercício 4:</strong> <span id="modal-aluno-exercicio-4"></span></p>
+            <p><strong>Categoria 4:</strong> <span id="modal-aluno-categoria-4"></span></p>
             </div>
     </div>
 
