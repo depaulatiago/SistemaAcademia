@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css"> 
+    <link rel="stylesheet" href="./styles.css">
     <title>Sistema Academia</title>
 </head>
+
 <body>
     <div class="container">
         <div class="left-section">
@@ -19,17 +21,77 @@
                 <div class="logo-container">
                     <img src="../assets/muscle-man.png" alt="Logo">
                 </div>
-            </div>            
-            <form>
+            </div>
+            <form id="loginForm">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" placeholder="E-mail" required />
-                
+
                 <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" placeholder="Senha" required minlength="6" />
-                
+
                 <button type="submit">Entrar</button>
+                <p id="loginMessage" style="display: none;"></p> <!-- Mensagem dinâmica -->
             </form>
         </div>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('senha').value;
+            const loginMessage = document.getElementById('loginMessage');
+
+            // Validação de e-mail
+            if (!validateEmail(email)) {
+                showMessage("Por favor, insira um e-mail válido.", "error");
+                return;
+            }
+
+            // Validação de senha
+            if (password.length < 6) {
+                showMessage("A senha deve ter pelo menos 6 caracteres.", "error");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:8080/usuario/login", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, senha: password })
+                });
+
+                const result = await response.text(); // Captura a resposta como texto
+
+                if (response.ok && result === "Login bem-sucedido!") {
+                    showMessage("Login bem-sucedido! Redirecionando...", "success");
+
+                    setTimeout(() => {
+                        window.location.href = "../tela_home/index.html";
+                    }, 2000);
+                } else {
+                    showMessage(result || "Erro ao fazer login.", "error");
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+                showMessage("Ocorreu um erro. Tente novamente mais tarde.", "error");
+            }
+
+        });
+
+        function validateEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        }
+
+        function showMessage(message, type) {
+            const loginMessage = document.getElementById('loginMessage');
+            loginMessage.textContent = message;
+            loginMessage.style.display = "block";
+            loginMessage.style.color = type === "success" ? "green" : "red";
+        }
+    </script>
 </body>
+
 </html>

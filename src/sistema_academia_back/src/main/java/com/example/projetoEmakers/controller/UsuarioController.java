@@ -58,6 +58,15 @@ public class UsuarioController {
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody Usuario usuario) {
+        Usuario foundUsuario = usuarioRepository.findByEmail(usuario.getEmail());
+        if (foundUsuario != null && foundUsuario.getSenha().equals(usuario.getSenha())) {
+            return ResponseEntity.ok("Login bem-sucedido!");
+        }
+        return ResponseEntity.status(401).body("Credenciais inválidas.");
+    }
 }
 
 
