@@ -25,8 +25,6 @@ public class Maquina {
 
     private int pesoMax;
 
-    private Date dataAquisicao;
-
 
 
     // Construtor padrão
@@ -34,11 +32,10 @@ public class Maquina {
     }
 
     // Construtor com argumentos
-    public Maquina(String nome, String categoria, int pesoMax, Date dataAquisicao) {
+    public Maquina(String nome, String categoria, int pesoMax) {
         this.nome = nome;
         this.categoria = String.valueOf(categoria);
         this.pesoMax = pesoMax;
-        this.dataAquisicao = dataAquisicao;
     }
 
 }

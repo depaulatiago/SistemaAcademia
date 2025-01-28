@@ -7,10 +7,9 @@ import java.util.Date;
 public record MaquinaResponseDTO(Long idMaq,
                                    String nome,
                                    String categoria,
-                                   int pesoMax,
-                                   Date dataAquisicao) {
+                                   int pesoMax) {
 
     public MaquinaResponseDTO(Maquina maquina) {
-        this(maquina.getIdMaq(), maquina.getNome(), maquina.getCategoria(), maquina.getPesoMax(), maquina.getDataAquisicao());
+        this(maquina.getIdMaq(), maquina.getNome(), maquina.getCategoria(), maquina.getPesoMax());
     }
 }

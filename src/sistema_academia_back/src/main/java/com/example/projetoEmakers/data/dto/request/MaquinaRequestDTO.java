@@ -17,10 +17,7 @@ public record MaquinaRequestDTO(
         String categoria,
 
         @NotNull(message = "")
-        int pesoMax,
-
-        @NotNull(message = "")
-        Date dataAquisicao
+        int pesoMax
 
 ) {
 

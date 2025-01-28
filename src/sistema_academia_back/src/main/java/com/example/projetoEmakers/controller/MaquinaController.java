@@ -44,7 +44,6 @@ public class MaquinaController {
                     maquina.setNome(updatedMaquina.getNome());
                     maquina.setCategoria(updatedMaquina.getCategoria());
                     maquina.setPesoMax(updatedMaquina.getPesoMax());
-                    maquina.setDataAquisicao(updatedMaquina.getDataAquisicao());
                     return ResponseEntity.ok(maquinaRepository.save(maquina));
                 })
                 .orElse(ResponseEntity.notFound().build());
