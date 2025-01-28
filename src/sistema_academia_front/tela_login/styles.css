@@ -1,0 +1,142 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-section {
+    flex: 1;
+    background: url('../assets/background.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; /* Alinha o conteúdo à direita */
+    padding: 50px;
+    text-align: right; /* Alinha o texto à direita */
+    position: relative; /* Necessário para o pseudo-elemento */
+}
+
+.left-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Escurece a imagem em 80% (20% opacidade) */
+    z-index: 1; /* Garante que fique atrás do conteúdo */
+}
+
+.left-section h1,
+.left-section p,
+.left-section span,
+.left-section button {
+    position: relative;
+    z-index: 2; /* Mantém o texto acima do overlay escuro */
+}
+
+.left-section h1 {
+    font-size: 5em;
+    margin-bottom: 20px;
+}
+
+.left-section p {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.left-section span {
+    background-color: #195d86;
+    color: white;
+    padding: 5px;
+}
+
+.left-section button {
+    background-color: #518BAF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.right-section {
+    flex: 0.5;
+    background-color: #f8f4ee;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-section .logo img {
+    display: block;
+    margin: 0 auto 30px;
+    max-width: 100px; 
+    height: auto; 
+}
+
+.right-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-section form label {
+    margin-bottom: 10px;
+}
+
+.right-section form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.right-section .options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.right-section button {
+    background-color: #518BAF;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.right-section button:hover {
+    background-color: #518BAF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.right-section footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px; /* Largura do quadrado */
+    height: 120px; /* Altura do quadrado */
+    border: 3px solid gold; /* Cor da borda dourada */
+    border-radius: 15px; /* Curvatura das bordas */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 10px; /* Espaçamento interno opcional */
+    background-color: #fff; /* Fundo branco para destaque */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.logo img {
+    max-width: 80px; /* Ajuste para caber no quadrado */
+    height: auto; /* Mantém a proporção da logo */
+}
+
