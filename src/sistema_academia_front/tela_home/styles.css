@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f3f3f3;
+    overflow: hidden; /* Evitar a rolagem */
+}
+
+/* Estilo do header */
+header {
+    background-color: #4CAF50;
+    padding: 15px 20px;
+    color: white;
+}
+
+/* Top bar */
+.top-bar {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Mantém espaço entre os elementos */
+}
+
+/* Título */
+.title {
+    flex: 1; /* Permite que o título ocupe o espaço disponível */
+    text-align: center; /* Centraliza o texto */
+    margin-left: 80px;    
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Adiciona um pequeno espaçamento à esquerda */
+    padding-right: 30px;
+}
+
+.user-icon {
+    width: 40px; /* Define o tamanho do ícone do usuário */
+    height: 40px; /* Define o tamanho do ícone do usuário */
+    border-radius: 20px; /* Faz o ícone ficar arredondado */
+    overflow: hidden; /* Esconde o que sair do contêiner */
+    display: flex; /* Usado para centralizar a imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #4CAF50; /* Cor de fundo opcional */
+}
+
+.user-icon img {
+    width: 100%; /* A imagem ocupa toda a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; /* Cobre o quadrado sem esticar */
+}
+
+/* adicione agora o home-header */
+.home-header {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    padding: 10px 20px;
+}
+
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+.back-arrow {
+    text-align: left; /* Centraliza a seta */
+    margin: 2px 0; /* Espaçamento em cima e embaixo */
+    padding-left: 0px; /* Espaçamento à esquerda */
+    padding-right: 500px;
+}
+
+.back-arrow img {
+    width: 30px; /* Ajuste o tamanho se necessário */
+    height: 30px;
+}
+.logo img {
+    height: 40px;
+}
+
+/* Reduzir padding para evitar rolagem */
+main {
+    padding: 20px 10px; /* Reduzido para evitar rolagem e aproveitar o espaço */
+    text-align: center;
+}
+
+.home-title h2 {
+    font-size: 24px; /* Diminuir o tamanho da fonte */
+    margin-bottom: 15px; /* Reduzido para poupar espaço */
+}
+
+.back-arrow {
+    text-align: left; /* Centraliza a seta */
+    margin: 2px 0; /* Espaçamento em cima e embaixo */
+    padding-left: 0px; /* Espaçamento à esquerda */
+    padding-right: 590px; /* Reduzido para separar mais para a direita */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for the first row */
+    gap: 10px; /* Space between items */
+    justify-items: center; /* Center items in the grid cells */
+}
+
+.grid-wrapper {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    padding: 20px 0; /* Spacing above and below */
+}
+
+.grid-item {
+    background-color: #4CAF50;
+    width: 180px; /* Maintain the previous size */
+    height: 180px; /* Maintain the previous size */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.grid-item a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px; /* Adjust text size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-item img {
+    width: 50px; /* Image size */
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.grid-item:hover {
+    background-color: #45a049; /* Hover effect */
+}
+
+
+/* Manter o footer visível, mas sem sobrepor conteúdo */
+footer {
+    background-color: #6b8e23;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
