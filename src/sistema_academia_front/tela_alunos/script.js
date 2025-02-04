@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             const editButton = alunoItem.querySelector(".edit-btn");
             editButton.addEventListener("click", function (event) {
                 event.stopPropagation(); // Impede propagação do clique
-                window.location.href = `../tela_editar_aluno/index.html?id=${aluno.id}`;
+                window.location.href = `../tela_editar_ficha_tecnica/index.html?id=${aluno.id}`;
             });
 
             // Botão de exclusão
