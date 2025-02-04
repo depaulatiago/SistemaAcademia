@@ -4,6 +4,6 @@ describe('Testes de Usuario', () => {
       cy.get('#email').type('admin@example.com');
       cy.get('#senha').type('admin123');
       cy.get('button[type=submit]').click();
-      cy.contains('Login bem-sucedido!');
+      cy.contains('Login bem-sucedidos');
   });
 });
