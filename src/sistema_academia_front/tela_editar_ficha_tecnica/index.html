@@ -37,51 +37,7 @@
         </form>
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("edit-ficha-tecnica-form");
-
-            form.addEventListener("submit", async function (event) {
-                event.preventDefault();
-
-                // Captura os valores do formulário
-                const fichaId = document.getElementById("ficha-id").value;
-                const idAluno = document.getElementById("id-aluno").value;
-                const idInstrutor = document.getElementById("id-instrutor").value;
-                const idsMaquinas = document.getElementById("ids-maquinas").value
-                    .split(",") // Divide os IDs por vírgula
-                    .map(id => id.trim()) // Remove espaços extras
-                    .map(Number); // Converte os valores para números
-
-                const updatedFicha = {
-                    idAluno: idAluno,
-                    idInstrutor: idInstrutor,
-                    idsMaquinas: idsMaquinas
-                };
-
-                try {
-                    // Envia os dados para a API para edição
-                    const response = await fetch(`http://localhost:8080/ficha/${fichaId}`, {
-                        method: "PUT",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(updatedFicha)
-                    });
-
-                    if (response.ok) {
-                        alert("Ficha Técnica atualizada com sucesso!");
-                    } else {
-                        const errorMessage = await response.text();
-                        alert(`Erro ao atualizar a ficha técnica: ${errorMessage}`);
-                    }
-                } catch (error) {
-                    console.error("Erro ao atualizar ficha técnica:", error);
-                    alert("Erro ao conectar-se à API.");
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
