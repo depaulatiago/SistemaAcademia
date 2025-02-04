@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f3f3f3;
+    text-align: center;
+  }
+  
+  header {
+    background-color: #518BAF;
+    padding: 15px;
+    color: white;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  #edit-aluno-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Botão de voltar */
+  #back-button {
+    margin: 15px;
+    padding: 10px;
+    background-color: transparent;
+    color: #518BAF;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+  }
+  
+  #back-button:hover {
+    color: #3A6F8F;
+    transform: translateY(-1px);
+  }
+  
+  #back-button:active {
+    transform: translateY(0);
+  }
+  

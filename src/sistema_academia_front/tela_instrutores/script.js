@@ -29,26 +29,24 @@ document.addEventListener("DOMContentLoaded", async function () {
         instrutoresToRender.forEach((instrutor) => {
             const instrutorItem = document.createElement("div");
             instrutorItem.classList.add("grid-item");
+
             instrutorItem.innerHTML = `
-                <span class="instrutor-name">${instrutor.nome}</span>
-                <button class="delete-btn" data-id="${instrutor.idInst}">X</button>
-            `;
+            <button class="edit-btn" data-id="${instrutor.idInst}">
+                ✏️
+            </button>
+            <span class="instrutor-name">${instrutor.nome}</span>
+            <button class="delete-btn" data-id="${instrutor.idInst}">X</button>
+        `;
 
-            // Adiciona evento para abrir o modal ao clicar no instrutor
-            instrutorItem.addEventListener("click", function (event) {
-                if (event.target.classList.contains("delete-btn")) return;
-
-                modalInstrutorId.textContent = instrutor.idInst || "Id não disponível";
-                modalInstrutorNome.textContent = instrutor.nome || "Nome não disponível";
-                modalInstrutorFuncao.textContent = instrutor.idade || "Idade não disponível";
-                modalInstrutorSalarioBase.textContent =
-                    instrutor.salario || "Salário base não disponível";
-                modal.style.display = "flex";
+            // Adiciona evento para abrir a página de edição ao clicar no botão de edição
+            const editButton = instrutorItem.querySelector(".edit-btn");
+            editButton.addEventListener("click", function (event) {
+                event.stopPropagation(); // Impede que o clique propague para outros elementos
+                window.location.href = `../tela_editar_instrutor/index.html?id=${instrutor.idInst}`;
             });
 
             // Adiciona evento para excluir o instrutor
             const deleteButton = instrutorItem.querySelector(".delete-btn");
-            // Adiciona evento para excluir o instrutor
             deleteButton.addEventListener("click", async function (event) {
                 event.stopPropagation(); // Impede que o clique no botão afete outros eventos
                 const id = deleteButton.dataset.id;
@@ -65,9 +63,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                     alert("Erro ao excluir o instrutor. Tente novamente.");
                 }
             });
+
             instrutorGrid.appendChild(instrutorItem);
         });
     }
+
 
     // Fecha o modal ao clicar no botão de fechar
     closeButton.addEventListener("click", function () {
