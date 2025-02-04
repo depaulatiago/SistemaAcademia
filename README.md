@@ -16,7 +16,7 @@ O **Sistema Academia** é um sistema desenvolvido para gerenciar informações e
 - **Java**: Versão 17 (ou superior).
 
 ### Frontend
-- **HTML**, **CSS**, **JavaScript** e **Bootstrap**: Para construção da interface do usuário.
+- **HTML5**, **CSS3**, **JavaScript** e **Bootstrap5**: Para construção da interface do usuário.
 
 ### Frameworks e Bibliotecas
 - **Spring Boot**: Versão 3.1.0 (ou superior) – para construção do backend.
@@ -24,7 +24,7 @@ O **Sistema Academia** é um sistema desenvolvido para gerenciar informações e
 - **Spring Security** – para autenticação e segurança.
 
 ### Banco de Dados
-- **H2 Database**: Banco de dados em memória para testes.
+- **H2 Database**: Banco de dados em memória para testes(Versão 2.3.232).
   
 ### Servidor de Desenvolvimento
 - **Apache Tomcat** (embutido no Spring Boot): Versão 10.
